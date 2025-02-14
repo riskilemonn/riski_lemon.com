@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kata-Kata Hari Ini</title>
+    <title>Kata-Kata Hari Ini </title>
     <style>
         body {
             background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fHJvbWFudGljfGVufDB8fHx8MTY4MjY5MjY5Nw&ixlib=rb-4.0.3&q=80&w=1080');
@@ -33,44 +33,38 @@
             margin-bottom: 20px;
         }
 
-        .romantic-words {
-            animation: slide-in 1s ease-in-out;
+        .button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
 
-        .fade-in {
+        .button:hover {
+            background-color: #ff1493;
+        }
+
+        .quote {
+            margin-top: 20px;
+            font-size: 18px;
             opacity: 0;
-            animation: fade-in 1s forwards;
-            margin: 10px 0;
+            transition: opacity 0.5s;
         }
-
-        @keyframes fade-in {
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slide-in {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .fade-in:nth-child(1) { animation-delay: 0s; }
-        .fade-in:nth-child(2) { animation-delay: 0.5s; }
-        .fade-in:nth-child(3) { animation-delay: 1s; }
-        .fade-in:nth-child(4) { animation-delay: 1.5s; }
-        .fade-in:nth-child(5) { animation-delay: 2s; }
 
         @media (max-width: 600px) {
             h1 {
                 font-size: 24px;
             }
-            .fade-in {
+            .button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+            .quote {
                 font-size: 16px;
             }
         }
@@ -79,13 +73,29 @@
 <body>
     <div class="container">
         <h1>Kata-Kata Sederhana</h1>
-        <div class="romantic-words">
-            <p class="fade-in">🌹 "Kamu adalah alasan senyumku setiap hari." 🌹</p>
-            <p class="fade-in">💖 "Setiap detik bersamamu adalah keajaiban." 💖</p>
-            <p class="fade-in">✨ "Kamu membuat hatiku berdebar setiap kali melihatmu." ✨</p>
-            <p class="fade-in">🌙 "Bersamamu, aku merasa di rumah." 🌙</p>
-            <p class="fade-in">💞 "Cintaku padamu seperti bintang, tak terhitung jumlahnya." 💞</p>
-        </div>
+        <button class="button" onclick="showQuote(1)">Kata 1</button>
+        <button class="button" onclick="showQuote(2)">Kata 2</button>
+        <button class="button" onclick="showQuote(3)">Kata 3</button>
+        <button class="button" onclick="showQuote(4)">Kata 4</button>
+        <button class="button" onclick="showQuote(5)">Kata 5</button>
+        
+        <div class="quote" id="quote"></div>
     </div>
+
+    <script>
+        const quotes = [
+            "🌹 \"Kamu adalah alasan senyumku setiap hari.\" 🌹",
+            "💖 \"Setiap detik bersamamu adalah keajaiban.\" 💖",
+            "✨ \"Kamu membuat hatiku berdebar setiap kali melihatmu.\" ✨",
+            "🌙 \"Bersamamu, aku merasa di rumah.\" 🌙",
+            "💞 \"Cintaku padamu seperti bintang, tak terhitung jumlahnya.\" 💞"
+        ];
+
+        function showQuote(index) {
+            const quoteElement = document.getElementById('quote');
+            quoteElement.textContent = quotes[index - 1];
+            quoteElement.style.opacity = 1; // Menampilkan kutipan
+        }
+    </script>
 </body>
 </html>
